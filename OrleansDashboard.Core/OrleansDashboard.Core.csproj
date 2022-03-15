@@ -16,7 +16,6 @@
     <PackageTags>orleans dashboard metrics monitor</PackageTags>
     <RepositoryUrl>https://github.com/OrleansContrib/OrleansDashboard</RepositoryUrl>
     <RootNamespace>OrleansDashboard</RootNamespace>
-    <Version>$(DashboardVersion)</Version>
   </PropertyGroup>
 
   <ItemGroup>
