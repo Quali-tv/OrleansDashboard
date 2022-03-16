@@ -40,7 +40,7 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.Orleans.OrleansRuntime" Version="4.0.0-preview1" />
     <PackageReference Include="Microsoft.Orleans.Sdk" Version="4.0.0-preview1" />
-    <PackageReference Include="System.Collections.Immutable" Version="5.0.0" />
+    <PackageReference Include="System.Collections.Immutable" Version="6.0.0" />
   </ItemGroup>
 
   <ItemGroup>
