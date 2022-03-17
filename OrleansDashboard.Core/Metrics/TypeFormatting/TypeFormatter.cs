@@ -35,7 +35,7 @@ namespace OrleansDashboard.Metrics.TypeFormatting
                             firstType = false;
                             break;
                         }
-                        if (firstTypeNameSection)builder.Append(token.Value.Split('.').Last());
+                        if (firstTypeNameSection) builder.Append(token.Value.Split('.').Last());
                         firstTypeNameSection = false;
                         break;
                     case TokenType.GenericArrayStart:
@@ -55,7 +55,7 @@ namespace OrleansDashboard.Metrics.TypeFormatting
             }
             return builder.ToString();
         }
-   
+
         private static IEnumerable<Token> Tokenise(string value)
         {
             var buffer = new StringBuilder();
@@ -90,7 +90,7 @@ namespace OrleansDashboard.Metrics.TypeFormatting
                     case ']':
                         if (state == ParseState.TypeArray)
                         {
-                            if (buffer.Length> 0) yield return new Token(TokenType.TypeNameSection, buffer.ToString());
+                            if (buffer.Length > 0) yield return new Token(TokenType.TypeNameSection, buffer.ToString());
                             yield return new Token(TokenType.TypeArrayEnd, "]");
                             state = ParseState.GenericArray;
                             buffer.Clear();
@@ -122,7 +122,7 @@ namespace OrleansDashboard.Metrics.TypeFormatting
                             buffer.Clear();
                             break;
                         }
-                        Console.WriteLine("unknown comma: " + value);
+                        // Console.WriteLine("unknown comma: " + value);
                         buffer.Clear();
                         break;
                     default:
