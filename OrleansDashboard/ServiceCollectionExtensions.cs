@@ -35,7 +35,6 @@ namespace Orleans
             Action<DashboardOptions> configurator = null)
         {
             services.Configure(configurator ?? (x => { }));
-            services.Configure<TelemetryOptions>(options => options.AddConsumer<DashboardTelemetryConsumer>());
             services.AddOptions<GrainProfilerOptions>();
 
             services.AddSingleton<SiloStatusOracleSiloDetailsProvider>();

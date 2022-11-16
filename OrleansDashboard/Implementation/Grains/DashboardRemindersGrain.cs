@@ -30,7 +30,7 @@ namespace OrleansDashboard
 
             var reminderData = await reminderTable.ReadRows(0, 0xffffffff);
 
-            if(!reminderData.Reminders.Any())
+            if (!reminderData.Reminders.Any())
             {
                 return EmptyReminders;
             }
@@ -53,8 +53,8 @@ namespace OrleansDashboard
         {
             return new ReminderInfo
             {
-                PrimaryKey = entry.GrainRef.PrimaryKeyAsString(),
-                GrainReference = entry.GrainRef.ToString(),
+                PrimaryKey = entry.GrainId.Key.ToString(),
+                GrainReference = entry.GrainId.ToString(),
                 Name = entry.ReminderName,
                 StartAt = entry.StartAt,
                 Period = entry.Period,

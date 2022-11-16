@@ -1,49 +1,61 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
-
-  <PropertyGroup>
-    <TargetFrameworks>net6.0</TargetFrameworks>
-    <AssemblyVersion>$(DashboardVersion)</AssemblyVersion>
-    <Authors>OrleansContrib</Authors>
-    <Company>OrleansContrib</Company>
-    <Copyright>Copyright © 2019</Copyright>
-    <Description>An admin dashboard for Microsoft Orleans</Description>
-    <FileVersion>$(DashboardVersion)</FileVersion>
-    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <PackageIcon>OrleansLogo.png</PackageIcon>
-    <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageProjectUrl>https://github.com/OrleansContrib/OrleansDashboard</PackageProjectUrl>
-    <PackageTags>orleans dashboard metrics monitor</PackageTags>
-    <RepositoryUrl>https://github.com/OrleansContrib/OrleansDashboard</RepositoryUrl>
-    <Version>$(DashboardVersion)</Version>
-  </PropertyGroup>
-  
-  <ItemGroup>
-    <FrameworkReference Include="Microsoft.AspNetCore.App" />
-  </ItemGroup>
-  
-  <ItemGroup>
-    <None Remove="favicon.ico" />
-    <None Remove="Index.html" />
-    <None Remove="index.min.js" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="OrleansLogo.png" Pack="true" PackagePath="\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Include="favicon.ico" />
-    <EmbeddedResource Include="Index.html" />
-    <EmbeddedResource Include="index.min.js" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Microsoft.Orleans.OrleansRuntime" Version="4.0.0-preview1" />
-    <PackageReference Include="Microsoft.Orleans.Sdk" Version="4.0.0-preview1" />
-    <PackageReference Include="System.Collections.Immutable" Version="6.0.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\OrleansDashboard.Core\OrleansDashboard.Core.csproj" />
-  </ItemGroup>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFrameworks>net7.0</TargetFrameworks>
+		<AssemblyVersion>$(DashboardVersion)</AssemblyVersion>
+		<Authors>OrleansContrib</Authors>
+		<Company>OrleansContrib</Company>
+		<Copyright>Copyright © 2019</Copyright>
+		<Description>An admin dashboard for Microsoft Orleans</Description>
+		<FileVersion>$(DashboardVersion)</FileVersion>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+		<PackageIcon>OrleansLogo.png</PackageIcon>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageProjectUrl>https://github.com/OrleansContrib/OrleansDashboard</PackageProjectUrl>
+		<PackageTags>orleans dashboard metrics monitor</PackageTags>
+		<RepositoryUrl>https://github.com/OrleansContrib/OrleansDashboard</RepositoryUrl>
+		<Version>$(DashboardVersion)</Version>
+		<Configurations>Bangin_Debug;Bangin_Release;Debug;Release</Configurations>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Bangin_Debug|AnyCPU' ">
+		<IntermediateOutputPath>obj\Debug\net6.0</IntermediateOutputPath>
+		<DebugSymbols>true</DebugSymbols>
+		<DebugType>portable</DebugType>
+		<Optimize>false</Optimize>
+		<OutputPath>bin\Bangin_Debug\net6.0</OutputPath>
+		<DefineConstants>TRACE;DEBUG;NET;NET6_0;NETCOREAPP</DefineConstants>
+		<WarningLevel>6</WarningLevel>
+		<NoWarn>1701;1702;IL2121</NoWarn>
+		<NoStdLib>true</NoStdLib>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Bangin_Release|AnyCPU' ">
+		<IntermediateOutputPath>obj\Release\net6.0</IntermediateOutputPath>
+		<Optimize>true</Optimize>
+		<DefineConstants>TRACE;RELEASE;NET;NET6_0;NETCOREAPP</DefineConstants>
+	</PropertyGroup>
+	<ItemGroup>
+		<FrameworkReference Include="Microsoft.AspNetCore.App" />
+	</ItemGroup>
+	<ItemGroup>
+		<None Remove="favicon.ico" />
+		<None Remove="Index.html" />
+		<None Remove="index.min.js" />
+	</ItemGroup>
+	<ItemGroup>
+		<None Include="OrleansLogo.png" Pack="true" PackagePath="\" />
+	</ItemGroup>
+	<ItemGroup>
+		<EmbeddedResource Include="favicon.ico" />
+		<EmbeddedResource Include="Index.html" />
+		<EmbeddedResource Include="index.min.js" />
+	</ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Microsoft.Orleans.OrleansRuntime" Version="4.0.0-preview2" />
+		<PackageReference Include="Microsoft.Orleans.Sdk" Version="7.0.0" />
+		<PackageReference Include="System.Collections.Immutable" Version="7.0.0" />
+		<PackageReference Include="Microsoft.Orleans.Reminders" Version="7.0.0" />
+	</ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\OrleansDashboard.Core\OrleansDashboard.Core.csproj" />
+	</ItemGroup>
 </Project>

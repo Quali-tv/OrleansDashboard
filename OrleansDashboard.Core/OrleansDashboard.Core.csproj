@@ -16,11 +16,29 @@
     <PackageTags>orleans dashboard metrics monitor</PackageTags>
     <RepositoryUrl>https://github.com/OrleansContrib/OrleansDashboard</RepositoryUrl>
     <RootNamespace>OrleansDashboard</RootNamespace>
+    <Configurations>Bangin_Debug;Bangin_Release;Debug;Release</Configurations>
   </PropertyGroup>
 
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Bangin_Debug|AnyCPU' ">
+    <IntermediateOutputPath>obj\Debug\net6.0</IntermediateOutputPath>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>portable</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Bangin_Debug\net6.0</OutputPath>
+    <DefineConstants>TRACE;DEBUG;NET;NET6_0;NETCOREAPP</DefineConstants>
+    <WarningLevel>6</WarningLevel>
+    <NoWarn>1701;1702;IL2121</NoWarn>
+    <LangVersion>10.0</LangVersion>
+    <NoStdLib>true</NoStdLib>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Bangin_Release|AnyCPU' ">
+    <IntermediateOutputPath>obj\Release\net6.0</IntermediateOutputPath>
+    <Optimize>true</Optimize>
+    <DefineConstants>TRACE;RELEASE;NET;NET6_0;NETCOREAPP</DefineConstants>
+  </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.Orleans.Runtime.Abstractions" Version="3.6.0" />
-    <PackageReference Include="Microsoft.Orleans.Sdk" Version="4.0.0-preview1" />
+    <PackageReference Include="Microsoft.Orleans.OrleansRuntime" Version="4.0.0-preview2" />
+    <PackageReference Include="Microsoft.Orleans.Sdk" Version="7.0.0" />
   </ItemGroup>
 	
   <ItemGroup>

@@ -62,7 +62,7 @@ namespace OrleansDashboard
                 }
                 catch (Exception ex)
                 {
-                    logger.Error(10001, ex.ToString());
+                    logger.LogError(new EventId(10001), ex.ToString());
                 }
 
                 logger.LogInformation($"Dashboard listening on {dashboardOptions.Port}");
